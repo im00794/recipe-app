@@ -1,9 +1,11 @@
-<app-header></app-header>
+<!--<app-header (featureSelected)="feature = $event"></app-header>-->
+<app-header (featureSelected)="afterSelected($event)"></app-header>
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes></app-recipes>
-      <app-shopping-list></app-shopping-list>
+      <app-recipes *ngIf="feature === 'recipe'"></app-recipes>
+      <app-shopping-list *ngIf="feature === 'shopping'"></app-shopping-list>
     </div>
   </div>
 </div>
