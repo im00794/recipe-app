@@ -13,6 +13,7 @@ export class DropdownDirective implements OnInit {
   ngOnInit(): void {
   }
 
+  // @HostListener('document:click', ['$event']) toggleDropdown(eventData: Event): void {
   @HostListener('click') toggleDropdown(eventData: Event): void {
     this.isDropShown = !this.isDropShown;
     // this.isDropShown ?
