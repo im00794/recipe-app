@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form>
+      <div class="row">
+        <div class="col-sm-4 form-group">
+          <label for="name">Name</label>
+          <input
+            #nameRecipe
+            class="form-control"
+            id="name"
+            name="name"
+            type="text"
+          >
+        </div>
+        <div class="col-sm-8 form-group">
+          <label for="description"> Description </label>
+          <input
+            #descriptionRecipe
+            class="form-control"
+            id="description"
+            name="description"
+            type="text">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="btn-toolbar">
+            <button (click)="addRecipe()"
+                    *ngIf="!editMode"
+                    class="btn btn-success"
+                    type="submit">Add Recipe
+            </button>
+            <button (click)="editRecipe(id)"
+                    *ngIf="editMode"
+                    class="btn btn-primary"
+                    type="button">Edit Recipe
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
