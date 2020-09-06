@@ -1,6 +1,4 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Recipe} from './recipe.model';
-import {RecipeService} from './recipe.service';
 
 @Component({
   selector: 'app-recipes',
@@ -10,17 +8,12 @@ import {RecipeService} from './recipe.service';
 })
 export class RecipesComponent implements OnInit {
 
-  recipe: Recipe;
 
-  constructor(private recipeService: RecipeService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.recipeService.selectedRecipe.subscribe(
-      (recipe: Recipe) => {
-        this.recipe = recipe;
-      }
-    );
+
   }
 
 }
