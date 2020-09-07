@@ -33,6 +33,11 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
   }
 
+  onDelete(): void {
+    this.recipeService.deleteRecipe(this.id);
+    this.router.navigate([''], {relativeTo: this.route});
+  }
+
   ngOnDestroy(): void {
     this.subObs.unsubscribe();
   }
