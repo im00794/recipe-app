@@ -17,11 +17,15 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.ingredients = this.shoppingListService.getIngredients();
-    this.ingredientAddedSub = this.shoppingListService.ingredientAdded.subscribe(
+    this.ingredientAddedSub = this.shoppingListService.ingredientChanged.subscribe(
       (ingredients: Ingredient[]) => {
         this.ingredients = ingredients;
       }
     );
+  }
+
+  onEdit(id: number) {
+    this.shoppingListService.ingredientEdited.next(id);
   }
 
   ngOnDestroy(): void {

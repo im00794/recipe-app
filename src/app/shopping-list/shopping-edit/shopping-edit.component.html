@@ -1,38 +1,51 @@
 <div class="row">
   <div class="col-xs-12">
-    <form>
+    <form #ingredientForm="ngForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-sm-5 form-group">
-          <label for="name">Name</label>
+          <label for="nameIngredient">Name</label>
           <input
-            #nameInput
             class="form-control"
-            id="name"
+            #nameIngredient="ngModel"
+            id="nameIngredient"
+            name="nameIngredient"
+            ngModel
+            required
             type="text">
+          <span *ngIf="nameIngredient.invalid && nameIngredient.touched"
+                class="help-block">Please enter a name !</span>
         </div>
         <div class="col-sm-2 form-group">
           <label for="amount">Amount</label>
           <input
-            #amountInput
             class="form-control"
             id="amount"
+            name="amountIngredient"
+            ngModel
+            pattern="^[1-9]+[0-9]*$"
+            required
             type="number">
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
           <div class="btn-toolbar">
-            <button (click)="addIngredient()"
-                    class="btn btn-success"
-                    type="submit">Add
+            <button
+              class="btn btn-success"
+              [disabled]="ingredientForm.invalid"
+              type="submit"
+            >{{editMode ? 'Update' : 'Add'}}
             </button>
             <button class="btn btn-danger"
                     type="button"
+                    (click)="onDelete()"
+                    [disabled]="!editMode"
             >Delete
             </button>
             <button class="btn btn-primary"
                     type="button"
-            >Clear
+                    (click)="onClear()"
+            >Clear Shopping List
             </button>
           </div>
         </div>
