@@ -19,8 +19,9 @@
              role="button"
              style="cursor: pointer">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a style="cursor: pointer">Save Data</a></li>
-            <li><a style="cursor: pointer">Fetch Data</a></li>
+            <li><a (click)="saveData()" style="cursor: pointer">Save Data</a></li>
+            <li><a (click)="fetchData()" style="cursor: pointer">Fetch Data</a></li>
+            <li><a (click)="clearData()" style="cursor: pointer">Clear Data</a></li>
           </ul>
         </li>
       </ul>

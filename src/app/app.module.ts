@@ -14,6 +14,7 @@ import {DropdownDirective} from './shared/dropdown.directive';
 import {AppRoutingModule} from './app-routing.module';
 import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
 import {RecipeStartComponent} from './recipes/recipe-start/recipe-start.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {RecipeStartComponent} from './recipes/recipe-start/recipe-start.componen
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
